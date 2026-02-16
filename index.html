@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sŏn — Fine Dining Korean | Austin, Texas</title>
+<meta name="description" content="Sŏn is Austin's first fine dining Korean restaurant. A multi-course tasting menu rooted in Korean culinary tradition, composed with Texas ingredients, and powered by the most sophisticated technology platform in hospitality.">
+<meta property="og:title" content="Sŏn — Fine Dining Korean | Austin, Texas">
+<meta property="og:description" content="Austin's first fine dining Korean restaurant. Heritage, precision, and intelligence.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sŏn — Fine Dining Korean | Austin, Texas">
+<meta name="twitter:description" content="Austin's first fine dining Korean restaurant. Heritage, precision, and intelligence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Sŏn",
+  "description": "Fine dining Korean restaurant in Austin, Texas",
+  "servesCuisine": "Korean",
+  "priceRange": "$$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Austin",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "description": "Opening 2027"
+  }
+}
+</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   SŎN — Design System
+   Warm earthy palette from Brandon's Cosmos.so board
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* Warm Earthy Palette */
+  --bg: #F5F0E8;
+  --bg-alt: #EDE7DB;
+  --surface: #FFFFFF;
+  --surface-warm: #FAF7F2;
+  --text: #1A1612;
+  --text-secondary: #6B5E52;
+  --text-muted: #9A8E82;
+  --accent: #8B6914;
+  --accent-hover: #6E5310;
+  --accent-light: rgba(139,105,20,0.08);
+  --border: rgba(26,22,18,0.08);
+  --border-strong: rgba(26,22,18,0.15);
+  --divider: #D4CCC0;
+  --terracotta: #B5694D;
+  --sage: #7A8B6F;
+  --taupe: #A89B8C;
+  --cream: #E8DFD0;
+  --mauve: #9B7B8A;
+  --charcoal: #2C2622;
+
+  /* Tech Stack Dark Theme */
+  --tech-bg: #08080A;
+  --tech-surface: #111113;
+  --tech-surface-hover: #18181b;
+  --tech-text: #E8E6E1;
+  --tech-text-muted: #9A9790;
+  --tech-accent: #10B981;
+  --tech-accent-dim: rgba(16,185,129,0.1);
+  --tech-accent-border: rgba(16,185,129,0.25);
+  --tech-border: rgba(255,255,255,0.08);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --section-gap: 140px;
+  --content-max: 1200px;
+  --content-pad: 24px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Reset & Base
+   ═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+.container {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--content-pad);
+}
+
+/* ═══════════════════════════════════════════════════════
+   Scroll Reveal Animation System
+   ═══════════════════════════════════════════════════════ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ═══════════════════════════════════════════════════════
+   Navigation
+   ═══════════════════════════════════════════════════════ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 var(--content-pad);
+  transition: all 0.4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(245,240,232,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  transition: all 0.2s;
+  border: none;
+}
+
+.nav-cta:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.nav-mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Section: Hero
+   ═══════════════════════════════════════════════════════ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px var(--content-pad) 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(139,105,20,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 15vw, 160px);
+  font-weight: 400;
+  letter-spacing: 4px;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeIn 1s ease 0.3s forwards;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: heroFadeIn 1s ease 0.6s forwards;
+}
+
+.hero-line {
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  margin: 24px auto;
+  opacity: 0;
+  animation: heroFadeIn 1s ease 0.8s forwards;
+}
+
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-muted);
+  max-width: 500px;
+  opacity: 0;
+  animation: heroFadeIn 1s ease 1s forwards;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  margin-top: 48px;
+  opacity: 0;
+  animation: heroFadeIn 1s ease 1.2s forwards;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  transition: all 0.25s;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(139,105,20,0.2);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 15px;
+  border: 1px solid var(--border-strong);
+  transition: all 0.25s;
+}
+
+.btn-secondary:hover {
+  background: var(--bg-alt);
+  border-color: var(--text-muted);
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: heroFadeIn 1s ease 1.5s forwards;
+}
+
+.hero-scroll-hint span {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--text-muted);
+  margin: 0 auto;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes heroFadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 0.8; transform: scaleY(1); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   Section Labels (reusable)
+   ═══════════════════════════════════════════════════════ */
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.section-body {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 720px;
+}
+
+.section-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  margin: 16px 0 24px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Section: Vision
+   ═══════════════════════════════════════════════════════ */
+
+.vision {
+  padding: var(--section-gap) 0;
+}
+
+.vision-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.vision-text { max-width: 560px; }
+
+.vision-visual {
+  position: relative;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.vision-visual-inner {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, var(--cream) 0%, var(--bg-alt) 50%, rgba(139,105,20,0.06) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vision-glyph {
+  font-family: var(--font-display);
+  font-size: 200px;
+  font-weight: 400;
+  color: var(--accent);
+  opacity: 0.1;
+  user-select: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Section: Concept
+   ═══════════════════════════════════════════════════════ */
+
+.concept {
+  padding: var(--section-gap) 0;
+  background: var(--surface-warm);
+}
+
+.concept-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px;
+}
+
+.concept-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.concept-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px 32px;
+  transition: all 0.3s ease;
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(26,22,18,0.08);
+  border-color: var(--border-strong);
+}
+
+.concept-card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 22px;
+}
+
+.concept-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.concept-card p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.concept-card .price {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Section: Team
+   ═══════════════════════════════════════════════════════ */
+
+.team {
+  padding: var(--section-gap) 0;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  background: var(--cream);
+  overflow: hidden;
+  position: relative;
+  border: 3px solid var(--border);
+  transition: all 0.4s ease;
+}
+
+.team-photo:hover {
+  border-color: var(--accent);
+  transform: scale(1.03);
+}
+
+.team-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--accent);
+  opacity: 0.3;
+  background: linear-gradient(135deg, var(--cream), var(--bg-alt));
+}
+
+.team-name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.team-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.team-bio {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Section: Market Opportunity
+   ═══════════════════════════════════════════════════════ */
+
+.market {
+  padding: var(--section-gap) 0;
+  background: var(--charcoal);
+  color: var(--bg);
+}
+
+.market .section-label { color: var(--cream); opacity: 0.6; }
+.market .section-title { color: var(--bg); }
+.market .section-body { color: rgba(245,240,232,0.7); }
+
+.market-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin: 64px 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.market-stat {
+  padding: 40px 24px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.3s;
+}
+
+.market-stat:last-child { border-right: none; }
+
+.market-stat:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 500;
+  color: var(--bg);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgba(245,240,232,0.5);
+  text-transform: uppercase;
+}
+
+.market-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 48px;
+}
+
+.market-body p {
+  font-size: 17px;
+  color: rgba(245,240,232,0.7);
+  line-height: 1.8;
+}
+
+.market-position {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--bg);
+  line-height: 1.6;
+  padding-left: 24px;
+  border-left: 2px solid rgba(245,240,232,0.2);
+}
+
+/* ═══════════════════════════════════════════════════════
+   Section: Technology
+   ═══════════════════════════════════════════════════════ */
+
+.tech {
+  padding: var(--section-gap) 0;
+  background: var(--tech-bg);
+  color: var(--tech-text);
+}
+
+.tech .section-label { color: var(--tech-accent); }
+.tech .section-title { color: var(--tech-text); }
+
+.tech-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+
+.tech-header p {
+  font-size: 17px;
+  color: var(--tech-text-muted);
+  line-height: 1.8;
+}
+
+.tech-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.tech-stat {
+  background: var(--tech-surface);
+  border: 1px solid var(--tech-border);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.tech-stat:hover { border-color: var(--tech-accent-border); }
+
+.tech-stat-value {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--tech-accent);
+}
+
+.tech-stat-label {
+  font-size: 11px;
+  color: rgba(154,151,144,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+}
+
+/* Nervous system callout */
+.tech-nervous {
+  background: var(--tech-accent-dim);
+  border: 1px solid var(--tech-accent-border);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.tech-nervous h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--tech-accent);
+  margin-bottom: 8px;
+}
+
+.tech-nervous p {
+  font-size: 14px;
+  color: var(--tech-text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.tech-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.tech-cat {
+  background: var(--tech-surface);
+  border: 1px solid var(--tech-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.25s;
+}
+
+.tech-cat:hover {
+  border-color: var(--tech-accent-border);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.tech-cat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.tech-cat-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--tech-accent-dim);
+  border: 1px solid var(--tech-accent-border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.tech-cat-count {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--tech-accent);
+  background: var(--tech-accent-dim);
+  border: 1px solid var(--tech-accent-border);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.tech-cat-name {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.tech-cat-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(154,151,144,0.5);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.tech-cat-platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.platform-tag {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--tech-text-muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--tech-border);
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: border-color 0.15s;
+}
+
+.platform-tag.hub {
+  color: var(--tech-accent);
+  border-color: var(--tech-accent-border);
+  background: var(--tech-accent-dim);
+}
+
+.tech-quote {
+  text-align: center;
+  max-width: 720px;
+  margin: 48px auto 0;
+  padding-top: 48px;
+  border-top: 1px solid var(--tech-border);
+}
+
+.tech-quote blockquote {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-style: italic;
+  color: rgba(232,230,225,0.6);
+  line-height: 1.6;
+}
+
+.tech-cta {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.btn-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--tech-accent);
+  color: var(--tech-bg);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-tech:hover {
+  background: #0ea472;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(16,185,129,0.3);
+}
+
+/* ═══════════════════════════════════════════════════════
+   Section: Investment
+   ═══════════════════════════════════════════════════════ */
+
+.invest {
+  padding: var(--section-gap) 0;
+}
+
+.invest-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.invest-text h2 {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.invest-text p {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.invest-uses {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.invest-uses li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.invest-uses li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.invest-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(26,22,18,0.04);
+}
+
+.invest-form h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.invest-form .form-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--surface-warm);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text);
+  transition: all 0.2s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(139,105,20,0.1);
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-group select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%239A8E82' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.form-submit:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.form-disclaimer {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.form-success.show { display: block; }
+.form-success h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.form-success p {
+  color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════
+   Footer
+   ═══════════════════════════════════════════════════════ */
+
+.footer {
+  background: var(--charcoal);
+  color: var(--bg);
+  padding: 80px 0 40px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 64px;
+}
+
+.footer-waitlist h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.footer-waitlist p {
+  color: rgba(245,240,232,0.5);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.waitlist-form {
+  display: flex;
+  gap: 12px;
+}
+
+.waitlist-form input {
+  flex: 1;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.waitlist-form input:focus {
+  border-color: var(--accent);
+}
+
+.waitlist-form input::placeholder {
+  color: rgba(245,240,232,0.3);
+}
+
+.waitlist-form button {
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.waitlist-form button:hover {
+  background: var(--accent-hover);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: rgba(245,240,232,0.5);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--bg); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: rgba(245,240,232,0.3);
+}
+
+.footer-timeline {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(245,240,232,0.4);
+}
+
+/* ═══════════════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  :root { --section-gap: 100px; }
+
+  .vision-content { grid-template-columns: 1fr; gap: 48px; }
+  .vision-visual { height: 350px; }
+  .concept-cards { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .market-stats { grid-template-columns: repeat(3, 1fr); }
+  .market-stat:nth-child(3) { border-right: none; }
+  .market-body { grid-template-columns: 1fr; gap: 32px; }
+  .tech-stats { grid-template-columns: repeat(3, 1fr); }
+  .tech-categories { grid-template-columns: 1fr 1fr; }
+  .invest-content { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 80px;
+    --content-pad: 20px;
+  }
+
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; }
+
+  .hero { min-height: 85vh; padding-top: 100px; }
+  .hero-ctas { flex-direction: column; width: 100%; max-width: 280px; }
+  .hero-ctas a, .hero-ctas button { width: 100%; text-align: center; }
+
+  .concept-cards { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; gap: 48px; }
+
+  .market-stats {
+    grid-template-columns: 1fr 1fr;
+    border-radius: 12px;
+  }
+  .market-stat { border-right: none; }
+  .market-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+  .market-stat:last-child { border-right: none; }
+
+  .tech-stats { grid-template-columns: repeat(2, 1fr); }
+  .tech-categories { grid-template-columns: 1fr; }
+
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-links { align-items: flex-start; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  .waitlist-form { flex-direction: column; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .stat-number { font-size: 42px; }
+}
+
+@media (max-width: 480px) {
+  .market-stats { grid-template-columns: 1fr; }
+  .market-stat { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .market-stat:last-child { border-bottom: none; }
+  .tech-stats { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     Navigation
+     ═══════════════════════════════════════════════════════ -->
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Sŏn</a>
+    <ul class="nav-links">
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#concept">Concept</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#market">Opportunity</a></li>
+      <li><a href="#tech">Technology</a></li>
+      <li><a href="#invest">Invest</a></li>
+      <li><a href="#waitlist" class="nav-cta">Join Waitlist</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">&times;</button>
+  <a href="#vision" class="mobile-link">Vision</a>
+  <a href="#concept" class="mobile-link">Concept</a>
+  <a href="#team" class="mobile-link">Team</a>
+  <a href="#market" class="mobile-link">Opportunity</a>
+  <a href="#tech" class="mobile-link">Technology</a>
+  <a href="#invest" class="mobile-link">Invest</a>
+  <a href="#waitlist" class="mobile-link">Join Waitlist</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     Section 1: Hero
+     ═══════════════════════════════════════════════════════ -->
+
+<section class="hero" id="hero">
+  <div class="hero-subtitle">Fine Dining Korean &middot; Austin, Texas</div>
+  <h1 class="hero-title">Sŏn</h1>
+  <div class="hero-line"></div>
+  <p class="hero-tagline">A restaurant built on heritage, precision, and intelligence.</p>
+  <div class="hero-ctas">
+    <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+    <a href="#invest" class="btn-secondary">For Investors</a>
+  </div>
+  <div class="hero-scroll-hint"><span></span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     Section 2: The Vision
+     ═══════════════════════════════════════════════════════ -->
+
+<section class="vision" id="vision">
+  <div class="container">
+    <div class="vision-content">
+      <div class="vision-text">
+        <div class="section-label reveal">Our Story</div>
+        <h2 class="section-title reveal reveal-delay-1">The Name Means Hand</h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+        <div class="section-body reveal reveal-delay-3">
+          <p>Sŏn &mdash; the Korean word for hand. Every dish at Sŏn begins and ends with the hand: the hand that selects each ingredient at dawn, the hand that folds the mandu with decades of muscle memory, the hand that plates with the precision of ceremony.</p>
+          <br>
+          <p>We are building a fine dining Korean restaurant in Austin, Texas &mdash; not Korean BBQ, not fusion, but Korean cuisine presented at its highest expression. Rooted in the culinary traditions of Korea, refined with the ingredients and energy of Texas, and operated with a level of technological sophistication the restaurant industry has never seen.</p>
+          <br>
+          <p style="font-family: var(--font-display); font-style: italic; color: var(--text); font-size: 19px;">Sŏn is where heritage meets the future.</p>
+        </div>
+      </div>
+      <div class="vision-visual reveal reveal-scale">
+        <div class="vision-visual-inner">
+          <span class="vision-glyph">&#25163;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     Section 3: The Concept
+     ═══════════════════════════════════════════════════════ -->
+
+<section class="concept" id="concept">
+  <div class="container">
+    <div class="concept-header">
+      <div class="section-label reveal">The Experience</div>
+      <h2 class="section-title reveal reveal-delay-1">Korean Cuisine at Its Highest Expression</h2>
+      <p class="section-body reveal reveal-delay-2" style="margin: 0 auto;">Sŏn offers a multi-course tasting menu that moves through the seasons of Korean cooking &mdash; from delicate banchan to bold, fire-kissed proteins &mdash; composed entirely from Texas-sourced ingredients and traditional Korean technique.</p>
+    </div>
+    <div class="concept-cards">
+      <div class="concept-card reveal">
+        <div class="concept-card-icon">&#127860;</div>
+        <h3>Tasting Menu</h3>
+        <p>A seasonal progression of 8&ndash;12 courses, each rooted in Korean culinary tradition and composed with Texas ingredients.</p>
+        <span class="price">$185 per person</span>
+      </div>
+      <div class="concept-card reveal reveal-delay-1">
+        <div class="concept-card-icon">&#127863;</div>
+        <h3>Beverage Program</h3>
+        <p>A curated wine list alongside traditional Korean beverages &mdash; makgeolli, soju, and Korean craft spirits &mdash; paired course by course.</p>
+      </div>
+      <div class="concept-card reveal reveal-delay-2">
+        <div class="concept-card-icon">&#127871;</div>
+        <h3>Private Dining</h3>
+        <p>An intimate omakase counter and a private dining room for events, celebrations, and corporate gatherings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     Section 4: The Team
+     ═══════════════════════════════════════════════════════ -->
+
+<section class="team" id="team">
+  <div class="container">
+    <div class="team-header">
+      <div class="section-label reveal">Our Team</div>
+      <h2 class="section-title reveal reveal-delay-1">Three Founders. One Vision.</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo">
+          <div class="team-photo-placeholder">D</div>
+        </div>
+        <h3 class="team-name">Dominic Thomas</h3>
+        <div class="team-title">Technology &amp; Strategy</div>
+        <p class="team-bio">Dominic brings a technology-first approach to hospitality, designing the 45-platform operating system that gives Sŏn capabilities no restaurant in America possesses. His background in systems architecture and AI integration means Sŏn doesn't just open a restaurant &mdash; it opens a data-intelligent business that compounds knowledge every day it operates.</p>
+      </div>
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-photo">
+          <div class="team-photo-placeholder">B</div>
+        </div>
+        <h3 class="team-name">Brandon Acu&ntilde;a-Cardona</h3>
+        <div class="team-title">Chief of Operations &amp; Visual Identity</div>
+        <p class="team-bio">Brandon shapes every visual and experiential touchpoint at Sŏn, from brand identity and interior design to service choreography and the guest journey. His work draws from contemporary Korean aesthetics and natural materials, creating spaces that feel both deeply rooted and unmistakably modern.</p>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-photo">
+          <div class="team-photo-placeholder">J</div>
+        </div>
+        <h3 class="team-name">June Shim</h3>
+        <div class="team-title">Head Chef &amp; Founder Partner</div>
+        <p class="team-bio">Chef June Shim brings a lifetime of Korean culinary mastery to Austin. Her cooking honors the techniques and flavors passed down through generations of Korean kitchen tradition while embracing the extraordinary produce and proteins of Texas &mdash; food that reveals the sophistication the world is only beginning to recognize in Korean cuisine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     Section 5: Market Opportunity
+     ═══════════════════════════════════════════════════════ -->
+
+<section class="market" id="market">
+  <div class="container">
+    <div class="section-label reveal">The Opportunity</div>
+    <h2 class="section-title reveal reveal-delay-1">A Wide-Open Market</h2>
+
+    <div class="market-stats">
+      <div class="market-stat reveal">
+        <div class="stat-number" data-count="0">0</div>
+        <div class="stat-label">Fine Dining Korean in Austin</div>
+      </div>
+      <div class="market-stat reveal reveal-delay-1">
+        <div class="stat-number">#1</div>
+        <div class="stat-label">Fastest-Growing Cuisine</div>
+      </div>
+      <div class="market-stat reveal reveal-delay-2">
+        <div class="stat-number" data-count="7">0</div>
+        <div class="stat-label">Michelin Stars in Austin</div>
+      </div>
+      <div class="market-stat reveal reveal-delay-3">
+        <div class="stat-number" data-count="51">0</div>
+        <div class="stat-label">Michelin-Recognized in Texas</div>
+      </div>
+      <div class="market-stat reveal reveal-delay-4">
+        <div class="stat-number">&lt;1yr</div>
+        <div class="stat-label">Craft Omakase to Michelin Star</div>
+      </div>
+    </div>
+
+    <div class="market-body">
+      <p class="reveal">Austin has embraced fine dining with open arms &mdash; seven Michelin stars, a thriving food culture, and proven demand for $150&ndash;$215 tasting menus. Yet there is not a single fine dining Korean restaurant in the city. Korean cuisine is the fastest-growing category in American dining, driven by global cultural influence and a generation of diners hungry for authenticity.</p>
+      <div class="market-position reveal reveal-delay-1">We are not competing with Korean BBQ. We are not competing with pan-Asian fusion. Sŏn occupies a category of one: fine dining Korean in a city that has been waiting for it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     Section 6: Technology Platform
+     ═══════════════════════════════════════════════════════ -->
+
+<section class="tech" id="tech">
+  <div class="container">
+    <div class="tech-header">
+      <div class="section-label reveal">The Differentiator</div>
+      <h2 class="section-title reveal reveal-delay-1">We're Not Just Opening a Restaurant.<br>We're Building an Operating System.</h2>
+      <p class="reveal reveal-delay-2">45 platforms connected into a single nervous system. Real-time P&amp;L. Individual guest lifetime value. Predictive churn detection. Capabilities no restaurant on earth possesses today.</p>
+    </div>
+
+    <div class="tech-stats">
+      <div class="tech-stat reveal">
+        <div class="tech-stat-value" data-count="45">0</div>
+        <div class="tech-stat-label">Total Platforms</div>
+      </div>
+      <div class="tech-stat reveal reveal-delay-1">
+        <div class="tech-stat-value" data-count="7">0</div>
+        <div class="tech-stat-label">Categories</div>
+      </div>
+      <div class="tech-stat reveal reveal-delay-2">
+        <div class="tech-stat-value" data-count="4">0</div>
+        <div class="tech-stat-label">Hub Systems</div>
+      </div>
+      <div class="tech-stat reveal reveal-delay-3">
+        <div class="tech-stat-value" data-count="18">0</div>
+        <div class="tech-stat-label">Data Sources</div>
+      </div>
+      <div class="tech-stat reveal reveal-delay-4">
+        <div class="tech-stat-value" data-count="11">0</div>
+        <div class="tech-stat-label">Emergent Capabilities</div>
+      </div>
+    </div>
+
+    <div class="tech-nervous reveal">
+      <h3>Airtable as Central Nervous System</h3>
+      <p>Data flows in from 18+ platforms via native sync, API scripts, and Make.com automations into Airtable &mdash; the single source of truth. Every operational metric, every guest profile, every labor insight &mdash; unified and queryable in real time.</p>
+    </div>
+
+    <div class="tech-categories">
+      <!-- Operations -->
+      <div class="tech-cat reveal">
+        <div class="tech-cat-header">
+          <div class="tech-cat-icon">&#9881;</div>
+          <div class="tech-cat-count">9 platforms</div>
+        </div>
+        <div class="tech-cat-name">Operations &amp; POS</div>
+        <div class="tech-cat-badge">Core Spine</div>
+        <div class="tech-cat-platforms">
+          <span class="platform-tag hub">Toast POS</span>
+          <span class="platform-tag hub">Restaurant 365</span>
+          <span class="platform-tag">PrepWizard</span>
+          <span class="platform-tag">Winnow AI</span>
+          <span class="platform-tag">Every Angle</span>
+          <span class="platform-tag">Connected Fresh</span>
+          <span class="platform-tag">FoodDocs</span>
+          <span class="platform-tag">SmartTill</span>
+        </div>
+      </div>
+      <!-- Guest -->
+      <div class="tech-cat reveal reveal-delay-1">
+        <div class="tech-cat-header">
+          <div class="tech-cat-icon">&#9733;</div>
+          <div class="tech-cat-count">6 platforms</div>
+        </div>
+        <div class="tech-cat-name">Guest &amp; Revenue</div>
+        <div class="tech-cat-badge">Guest Data Spine</div>
+        <div class="tech-cat-platforms">
+          <span class="platform-tag hub">SevenRooms</span>
+          <span class="platform-tag">Hang</span>
+          <span class="platform-tag">Bloom Intelligence</span>
+          <span class="platform-tag">TripleSeat</span>
+          <span class="platform-tag">Stripe</span>
+          <span class="platform-tag">Davo</span>
+        </div>
+      </div>
+      <!-- People -->
+      <div class="tech-cat reveal reveal-delay-2">
+        <div class="tech-cat-header">
+          <div class="tech-cat-icon">&#128101;</div>
+          <div class="tech-cat-count">7 platforms</div>
+        </div>
+        <div class="tech-cat-name">People &amp; HR</div>
+        <div class="tech-cat-badge">Employee Lifecycle</div>
+        <div class="tech-cat-platforms">
+          <span class="platform-tag hub">Rippling</span>
+          <span class="platform-tag">Greenhouse</span>
+          <span class="platform-tag">Deputy</span>
+          <span class="platform-tag">Trainual</span>
+          <span class="platform-tag">TipHaus</span>
+          <span class="platform-tag">Nectar</span>
+          <span class="platform-tag">YellowBox</span>
+        </div>
+      </div>
+      <!-- Comms -->
+      <div class="tech-cat reveal">
+        <div class="tech-cat-header">
+          <div class="tech-cat-icon">&#128172;</div>
+          <div class="tech-cat-count">4 platforms</div>
+        </div>
+        <div class="tech-cat-name">Comms &amp; AI</div>
+        <div class="tech-cat-badge">Voice Intelligence</div>
+        <div class="tech-cat-platforms">
+          <span class="platform-tag">Slang AI</span>
+          <span class="platform-tag">RingCentral</span>
+          <span class="platform-tag">ElevenLabs</span>
+          <span class="platform-tag">Google Business</span>
+        </div>
+      </div>
+      <!-- Security -->
+      <div class="tech-cat reveal reveal-delay-1">
+        <div class="tech-cat-header">
+          <div class="tech-cat-icon">&#128274;</div>
+          <div class="tech-cat-count">4 platforms</div>
+        </div>
+        <div class="tech-cat-name">Security &amp; Access</div>
+        <div class="tech-cat-badge">Physical + Digital</div>
+        <div class="tech-cat-platforms">
+          <span class="platform-tag hub">Okta SSO</span>
+          <span class="platform-tag">Kisi</span>
+          <span class="platform-tag">Rhombus / Verkada</span>
+          <span class="platform-tag">Omni Alert</span>
+        </div>
+      </div>
+      <!-- Marketing -->
+      <div class="tech-cat reveal reveal-delay-2">
+        <div class="tech-cat-header">
+          <div class="tech-cat-icon">&#128227;</div>
+          <div class="tech-cat-count">5 platforms</div>
+        </div>
+        <div class="tech-cat-name">Marketing &amp; Brand</div>
+        <div class="tech-cat-badge">Brand Presence</div>
+        <div class="tech-cat-platforms">
+          <span class="platform-tag">Sprout Social</span>
+          <span class="platform-tag">Framer</span>
+          <span class="platform-tag">Canva</span>
+          <span class="platform-tag">Parcel</span>
+        </div>
+      </div>
+      <!-- Productivity -->
+      <div class="tech-cat reveal">
+        <div class="tech-cat-header">
+          <div class="tech-cat-icon">&#9889;</div>
+          <div class="tech-cat-count">10 platforms</div>
+        </div>
+        <div class="tech-cat-name">Productivity &amp; Data</div>
+        <div class="tech-cat-badge">Backbone</div>
+        <div class="tech-cat-platforms">
+          <span class="platform-tag hub">Airtable</span>
+          <span class="platform-tag">ClickUp</span>
+          <span class="platform-tag hub">Claude + MCP</span>
+          <span class="platform-tag">Ramp</span>
+          <span class="platform-tag">Box</span>
+          <span class="platform-tag">Make.com</span>
+          <span class="platform-tag">Superhuman</span>
+          <span class="platform-tag">Zoom</span>
+          <span class="platform-tag">Loom</span>
+          <span class="platform-tag">CurrentSee</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-quote reveal">
+      <blockquote>&ldquo;45 commercially available platforms. Zero proprietary technology. The moat is that nobody in hospitality has ever wired them together &mdash; and the capabilities that emerge when you do are structurally impossible for incumbents to replicate.&rdquo;</blockquote>
+    </div>
+
+    <div class="tech-cta reveal">
+      <a href="#" class="btn-tech">Explore the Full Architecture &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     Section 7: Investment
+     ═══════════════════════════════════════════════════════ -->
+
+<section class="invest" id="invest">
+  <div class="container">
+    <div class="invest-content">
+      <div class="invest-text">
+        <div class="section-label reveal">Invest in Sŏn</div>
+        <h2 class="reveal reveal-delay-1">Join Us at the Beginning</h2>
+        <p class="reveal reveal-delay-2">Sŏn is raising a pre-seed round to bring fine dining Korean cuisine to Austin, Texas. We are seeking partners who understand that the best restaurants are built on vision, operational excellence, and the right team.</p>
+        <ul class="invest-uses reveal reveal-delay-3">
+          <li>Real estate acquisition and lease negotiation</li>
+          <li>Restaurant buildout and kitchen equipment</li>
+          <li>Pre-opening operations and team hiring</li>
+          <li>Working capital for the first six months of operation</li>
+        </ul>
+      </div>
+      <div class="invest-form reveal reveal-scale">
+        <div id="investFormContent">
+          <h3>Request Our Pitch Deck</h3>
+          <p class="form-subtitle">We'll send you our investor materials within 24 hours.</p>
+          <form id="investForm" onsubmit="handleInvestForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Affiliation</label>
+              <input type="text" id="company" name="company">
+            </div>
+            <div class="form-group">
+              <label for="accredited">Are you an accredited investor?</label>
+              <select id="accredited" name="accredited">
+                <option value="">Select...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="prefer-not">Prefer not to say</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message (optional)</label>
+              <textarea id="message" name="message" placeholder="Tell us about your interest in Sŏn..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Request Pitch Deck</button>
+            <p class="form-disclaimer">By submitting this form, you are requesting access to our investor materials. This is not an offer to sell securities. All investment opportunities are available only to accredited investors in compliance with applicable securities regulations.</p>
+          </form>
+        </div>
+        <div class="form-success" id="investSuccess">
+          <h3>Thank You</h3>
+          <p>Our team will send the pitch deck to your email within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     Footer
+     ═══════════════════════════════════════════════════════ -->
+
+<footer class="footer" id="waitlist">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-waitlist">
+        <h3>Be the First to Know</h3>
+        <p>Join our waitlist to be notified when Sŏn opens its doors.</p>
+        <form class="waitlist-form" id="waitlistForm" onsubmit="handleWaitlist(event)">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Join Waitlist</button>
+        </form>
+      </div>
+      <div class="footer-links">
+        <a href="https://instagram.com/sonaustin" target="_blank" rel="noopener">Instagram @sonaustin</a>
+        <a href="mailto:invest@sonaustin.com">invest@sonaustin.com</a>
+        <a href="mailto:hello@sonaustin.com">hello@sonaustin.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Sŏn Restaurant Group. All rights reserved.</p>
+      <span class="footer-timeline">Austin, Texas &mdash; Opening 2027</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     JavaScript — Animations & Interactions
+     ═══════════════════════════════════════════════════════ -->
+
+<script>
+// ─── Scroll Reveal ────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+document.querySelectorAll('.reveal, .reveal-scale').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// ─── Number Counter Animation ─────────────────────────────
+function animateCounter(el, target, duration = 1500) {
+  let start = 0;
+  const startTime = performance.now();
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(start + (target - start) * eased);
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const count = entry.target.dataset.count;
+      if (count !== undefined) {
+        const target = parseInt(count);
+        if (!isNaN(target) && target > 0) {
+          animateCounter(entry.target, target);
+        }
+      }
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+// ─── Navigation Scroll Behavior ───────────────────────────
+const nav = document.getElementById('nav');
+let lastScrollY = 0;
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  if (scrollY > 80) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  lastScrollY = scrollY;
+}, { passive: true });
+
+// ─── Smooth Scroll for Nav Links ──────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+    // Close mobile menu if open
+    document.getElementById('mobileMenu').classList.remove('open');
+  });
+});
+
+// ─── Mobile Menu ──────────────────────────────────────────
+document.getElementById('mobileToggle').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.add('open');
+});
+
+document.getElementById('mobileClose').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.remove('open');
+});
+
+// ─── Form Handlers ────────────────────────────────────────
+function handleInvestForm(e) {
+  e.preventDefault();
+  document.getElementById('investFormContent').style.display = 'none';
+  document.getElementById('investSuccess').classList.add('show');
+}
+
+function handleWaitlist(e) {
+  e.preventDefault();
+  const form = e.target;
+  const input = form.querySelector('input');
+  const button = form.querySelector('button');
+  button.textContent = 'You\'re on the list!';
+  button.style.background = '#7A8B6F';
+  input.value = '';
+  input.disabled = true;
+  button.disabled = true;
+}
+
+// ─── Parallax Hero (subtle) ──────────────────────────────
+const hero = document.querySelector('.hero');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  if (scrollY < window.innerHeight) {
+    const opacity = 1 - (scrollY / (window.innerHeight * 0.8));
+    const translate = scrollY * 0.3;
+    hero.style.opacity = Math.max(opacity, 0);
+    hero.style.transform = `translateY(${translate}px)`;
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>

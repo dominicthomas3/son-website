@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology Platform — Son | Fine Dining Korean</title>
+<meta name="description" content="45 platforms. Zero proprietary technology. The most sophisticated operating system in the restaurant industry — built for Son, Austin's first fine dining Korean restaurant.">
+<meta property="og:title" content="Technology Platform — Son">
+<meta property="og:description" content="45 platforms wired into a single nervous system. Real-time P&L, individual guest lifetime value, predictive churn detection, and 11 emergent capabilities no restaurant on earth possesses.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0A0B;
+  --bg-elevated:#111113;
+  --bg-surface:#1A1A1C;
+  --bg-surface2:#222225;
+  --text:#E8E6E1;
+  --text-secondary:#9A9790;
+  --text-muted:#5A5750;
+  --accent:#C4A265;
+  --accent-hover:#D4B275;
+  --accent-dim:rgba(196,162,101,0.1);
+  --accent-border:rgba(196,162,101,0.25);
+  --border:rgba(255,255,255,0.06);
+  --border-hover:rgba(255,255,255,0.12);
+  --emerald:#10B981;
+  --emerald-dim:rgba(16,185,129,0.1);
+  --emerald-border:rgba(16,185,129,0.25);
+  --emerald-glow:rgba(16,185,129,0.06);
+  --content-max:1200px;
+  --content-pad:24px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+::selection{background:var(--emerald);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 var(--content-pad);background:rgba(10,10,11,0.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all 0.3s}
+.nav-inner{max-width:var(--content-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;letter-spacing:2px;color:var(--text)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text-secondary);transition:color 0.2s;letter-spacing:0.5px}
+.nav-links a:hover,.nav-links a.active{color:var(--emerald)}
+.nav-cta{font-size:13px!important;font-weight:600!important;color:var(--bg)!important;background:var(--accent);padding:10px 22px;border-radius:6px;transition:all 0.2s}
+.nav-cta:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;width:32px;height:32px;position:relative}
+.nav-toggle span{display:block;width:20px;height:1.5px;background:var(--text);position:absolute;left:6px;transition:all 0.3s}
+.nav-toggle span:nth-child(1){top:10px}
+.nav-toggle span:nth-child(2){top:15px}
+.nav-toggle span:nth-child(3){top:20px}
+@media(max-width:768px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--bg);flex-direction:column;padding:40px var(--content-pad);gap:24px}
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:18px}
+}
+
+/* PROGRESS */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--emerald);z-index:1001;transition:width 0.1s linear}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1),transform 0.8s cubic-bezier(0.22,1,0.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+.reveal-delay-5{transition-delay:0.5s}
+.reveal-delay-6{transition-delay:0.6s}
+
+/* SECTION BASE */
+.section{padding:120px var(--content-pad)}
+.section-inner{max-width:var(--content-max);margin:0 auto}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--emerald);margin-bottom:20px;opacity:0.8}
+.section-headline{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.15;letter-spacing:-1px;margin-bottom:24px;color:var(--text)}
+.section-headline em{color:var(--emerald);font-style:normal}
+
+/* HERO */
+.tech-hero{min-height:70vh;display:flex;align-items:center;padding:120px var(--content-pad) 80px;position:relative;overflow:hidden}
+.tech-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(16,185,129,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,0.015) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.tech-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--bg),transparent);pointer-events:none}
+.tech-hero-inner{max-width:var(--content-max);margin:0 auto;position:relative;z-index:1;width:100%}
+.tech-hero-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--emerald);text-transform:uppercase;margin-bottom:20px}
+.tech-hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,72px);font-weight:400;line-height:1.1;letter-spacing:-2px;margin-bottom:24px;max-width:800px}
+.tech-hero-title em{color:var(--emerald);font-style:normal}
+.tech-hero-sub{font-size:18px;color:var(--text-secondary);line-height:1.7;max-width:600px;margin-bottom:40px}
+.tech-hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+.tech-hero-stat{text-align:left}
+.tech-hero-stat-val{font-family:'JetBrains Mono',monospace;font-size:36px;font-weight:700;color:var(--emerald);line-height:1}
+.tech-hero-stat-label{font-size:11px;color:var(--text-muted);margin-top:6px;text-transform:uppercase;letter-spacing:0.5px}
+
+/* THESIS */
+.thesis-section{background:var(--bg-elevated)}
+.thesis-content{max-width:800px;margin:0 auto;text-align:center}
+.thesis-content p{font-size:17px;color:var(--text-secondary);line-height:1.8}
+.thesis-content p+p{margin-top:16px}
+.thesis-quote{margin-top:40px;padding:32px 40px;background:var(--bg-surface);border:1px solid var(--emerald-border);border-radius:12px;font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--text);line-height:1.6;text-align:center}
+.thesis-quote em{color:var(--emerald);font-style:normal;font-weight:500}
+
+/* ARCHITECTURE */
+.arch-section{background:var(--bg);position:relative;overflow:hidden}
+.arch-section::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(16,185,129,0.01) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,0.01) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.arch-inner{position:relative;z-index:1}
+.arch-header{text-align:center;margin-bottom:48px}
+.arch-callout{background:var(--emerald-dim);border:1px solid var(--emerald-border);border-radius:12px;padding:28px 32px;margin-bottom:40px;display:flex;align-items:center;gap:24px}
+.arch-callout-icon{width:56px;height:56px;border-radius:12px;background:var(--emerald);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px;color:var(--bg)}
+.arch-callout-text h3{font-size:16px;font-weight:700;color:var(--emerald);margin-bottom:4px}
+.arch-callout-text p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+.arch-categories{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px;margin-bottom:40px}
+.arch-cat{background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;padding:28px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1)}
+.arch-cat:hover{border-color:var(--emerald-border);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.25)}
+.arch-cat-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.arch-cat-name{font-size:18px;font-weight:700}
+.arch-cat-count{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--emerald);background:var(--emerald-dim);border:1px solid var(--emerald-border);padding:4px 10px;border-radius:5px;font-weight:600}
+.arch-cat-badge{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px}
+.arch-cat-desc{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px}
+.arch-platforms{display:flex;flex-wrap:wrap;gap:6px}
+.arch-plat{font-size:12px;font-weight:500;color:var(--text-muted);background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:4px 10px;border-radius:5px;transition:all 0.2s}
+.arch-plat:hover{border-color:var(--border-hover);color:var(--text-secondary)}
+.arch-plat.hub{color:var(--emerald);border-color:var(--emerald-border);background:var(--emerald-dim);font-weight:600}
+.arch-legend{display:flex;gap:20px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.arch-legend-item{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-muted)}
+.arch-legend-dot{width:10px;height:10px;border-radius:3px}
+.arch-legend-dot.hub{background:var(--emerald);border:1px solid var(--emerald-border)}
+.arch-legend-dot.platform{background:rgba(255,255,255,0.03);border:1px solid var(--border)}
+@media(max-width:768px){.arch-categories{grid-template-columns:1fr}.arch-callout{flex-direction:column;text-align:center}}
+
+/* CAPABILITIES */
+.cap-section{background:var(--bg-elevated)}
+.cap-header{text-align:center;margin-bottom:56px}
+.cap-header p{font-size:16px;color:var(--text-secondary);max-width:640px;margin:0 auto;line-height:1.7}
+.cap-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.cap-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color 0.3s}
+.cap-card:hover{border-color:var(--emerald-border)}
+.cap-card-head{padding:24px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.cap-card-left{display:flex;align-items:center;gap:16px;min-width:0}
+.cap-card-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--emerald);font-weight:600;flex-shrink:0}
+.cap-card-tag{font-size:10px;font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0}
+.cap-card-title{font-size:15px;font-weight:600;color:var(--text);line-height:1.4}
+.cap-card-toggle{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;color:var(--text-muted);font-size:14px}
+.cap-card.open .cap-card-toggle{background:var(--emerald-dim);border-color:var(--emerald-border);color:var(--emerald);transform:rotate(45deg)}
+.cap-card-body{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.22,1,0.36,1)}
+.cap-card.open .cap-card-body{max-height:600px}
+.cap-card-content{padding:0 28px 28px;border-top:1px solid var(--border)}
+.cap-card-content p{font-size:14px;color:var(--text-secondary);line-height:1.7;padding-top:20px}
+.cap-stack{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--emerald);opacity:0.7;line-height:1.5}
+.cap-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.cap-compare-box{padding:16px;border-radius:8px;font-size:12px;line-height:1.6}
+.cap-compare-box.them{background:rgba(255,255,255,0.02);border:1px solid var(--border);color:var(--text-muted)}
+.cap-compare-box.us{background:var(--emerald-dim);border:1px solid var(--emerald-border);color:var(--text-secondary)}
+.cap-compare-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.cap-compare-box.them .cap-compare-label{color:var(--text-muted)}
+.cap-compare-box.us .cap-compare-label{color:var(--emerald)}
+@media(max-width:768px){.cap-compare{grid-template-columns:1fr}.cap-card-left{flex-wrap:wrap}}
+
+/* DATA FLOW */
+.flow-section{background:var(--bg)}
+.flow-header{text-align:center;margin-bottom:48px}
+.flow-visual{max-width:900px;margin:0 auto;padding:40px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:16px}
+.flow-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.flow-node{font-family:'JetBrains Mono',monospace;font-size:11px;padding:10px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg-surface);color:var(--text-secondary);text-align:center;min-width:100px;transition:all 0.3s}
+.flow-node:hover{border-color:var(--emerald-border);color:var(--text)}
+.flow-node.hub{background:var(--emerald-dim);border-color:var(--emerald-border);color:var(--emerald);font-weight:600}
+.flow-node.center{background:var(--emerald);color:var(--bg);font-weight:700;font-size:13px;padding:14px 24px;border-color:var(--emerald)}
+.flow-arrow{color:var(--emerald);font-size:18px;opacity:0.4}
+.flow-arrow.down{display:block;text-align:center;margin:8px 0;font-size:20px}
+.flow-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);text-align:center;margin-top:8px;letter-spacing:1px;text-transform:uppercase}
+
+/* CTA */
+.cta-section{background:var(--bg-elevated);text-align:center}
+.cta-section .section-headline{margin-bottom:16px}
+.cta-section p{font-size:16px;color:var(--text-secondary);margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;padding:14px 28px;border-radius:6px;border:none;cursor:pointer;transition:all 0.25s;letter-spacing:0.3px}
+.btn-primary{background:var(--accent);color:var(--bg)}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,162,101,0.15)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border-hover);margin-left:12px}
+.btn-outline:hover{background:var(--bg-surface);border-color:var(--accent-border);transform:translateY(-2px)}
+.btn svg{width:16px;height:16px}
+
+/* FOOTER */
+.footer{background:var(--bg);border-top:1px solid var(--border);padding:72px var(--content-pad) 36px}
+.footer-inner{max-width:var(--content-max);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.footer-brand .footer-logo{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;letter-spacing:2px;margin-bottom:10px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.6}
+.footer-links h4{font-size:14px;font-weight:600;margin-bottom:12px}
+.footer-links a{display:block;font-size:13px;color:var(--text-muted);padding:5px 0;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copyright{font-size:12px;color:var(--text-muted);opacity:0.6}
+.footer-timeline{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:2px;opacity:0.8}
+@media(max-width:768px){.footer-top{grid-template-columns:1fr;gap:28px}.tech-hero-stats{gap:24px}}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Son</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#vision">Vision</a></li>
+      <li><a href="index.html#concept">Concept</a></li>
+      <li><a href="index.html#team">Team</a></li>
+      <li><a href="index.html#opportunity">Opportunity</a></li>
+      <li><a href="technology.html" class="active">Technology</a></li>
+      <li><a href="invest.html">Invest</a></li>
+      <li><a href="index.html#waitlist" class="nav-cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="tech-hero">
+  <div class="tech-hero-inner">
+    <div class="tech-hero-label reveal">Technology Platform</div>
+    <h1 class="tech-hero-title reveal reveal-delay-1">We didn't build software.<br>We built the <em>bus</em>.</h1>
+    <p class="tech-hero-sub reveal reveal-delay-2">45 commercially available platforms connected through native integrations, paid APIs, and automation layers into a single nervous system. What emerges isn't a better restaurant &#8212; it's a different kind of business.</p>
+    <div class="tech-hero-stats reveal reveal-delay-3">
+      <div class="tech-hero-stat"><div class="tech-hero-stat-val" data-count="45">0</div><div class="tech-hero-stat-label">Platforms</div></div>
+      <div class="tech-hero-stat"><div class="tech-hero-stat-val" data-count="7">0</div><div class="tech-hero-stat-label">Categories</div></div>
+      <div class="tech-hero-stat"><div class="tech-hero-stat-val" data-count="4">0</div><div class="tech-hero-stat-label">Hub Systems</div></div>
+      <div class="tech-hero-stat"><div class="tech-hero-stat-val" data-count="18">0</div><div class="tech-hero-stat-label">Data Sources</div></div>
+      <div class="tech-hero-stat"><div class="tech-hero-stat-val" data-count="11">0</div><div class="tech-hero-stat-label">Emergent Capabilities</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THESIS -->
+<section class="section thesis-section">
+  <div class="section-inner">
+    <div class="thesis-content">
+      <div class="section-label reveal">The Thesis</div>
+      <h2 class="section-headline reveal reveal-delay-1">Not proprietary technology.<br><em>Proprietary wiring.</em></h2>
+      <p class="reveal reveal-delay-2">Every one of these 45 platforms is commercially available. Any restaurant could buy them. Not a single restaurant has connected them. The moat isn't the software &#8212; it's the architecture that makes them talk to each other, and the compounding data layer that emerges when they do.</p>
+      <p class="reveal reveal-delay-3">What we built is a wiring diagram between Toast, SevenRooms, Hang, Rippling, Airtable, Restaurant 365, Deputy, Make.com &#8212; connected through native integrations, paid APIs, and automation layers into a single nervous system.</p>
+      <div class="thesis-quote reveal reveal-delay-4">"45 commercially available platforms. Zero proprietary technology. The moat is that <em>nobody in hospitality has ever wired them together</em> &#8212; and the capabilities that emerge are structurally impossible for incumbents to replicate."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="section arch-section" id="architecture">
+  <div class="section-inner arch-inner">
+    <div class="arch-header">
+      <div class="section-label reveal">Full Architecture</div>
+      <h2 class="section-headline reveal reveal-delay-1">Seven Categories. <em>45 Platforms.</em></h2>
+    </div>
+
+    <div class="arch-callout reveal reveal-delay-2">
+      <div class="arch-callout-icon">&#9741;</div>
+      <div class="arch-callout-text">
+        <h3>Airtable as Central Nervous System</h3>
+        <p>Data flows in from 18+ platforms via native sync, API scripts, and Make.com automations. Every operational metric, guest profile, labor insight, and financial figure &#8212; unified in real time. Airtable isn't a spreadsheet. It's the aggregation layer that makes the 11 emergent capabilities possible.</p>
+      </div>
+    </div>
+
+    <div class="arch-categories">
+      <div class="arch-cat reveal">
+        <div class="arch-cat-head"><div class="arch-cat-name">Operations &amp; POS</div><div class="arch-cat-count">9 platforms</div></div>
+        <div class="arch-cat-badge">Core Spine</div>
+        <p class="arch-cat-desc">The revenue engine. Every order, every dollar, every inventory movement, every food safety check &#8212; captured, connected, and flowing into the central nervous system in real time.</p>
+        <div class="arch-platforms">
+          <span class="arch-plat hub">Toast POS</span>
+          <span class="arch-plat hub">Restaurant365</span>
+          <span class="arch-plat">PrepWizard</span>
+          <span class="arch-plat">Winnow AI</span>
+          <span class="arch-plat">Every Angle</span>
+          <span class="arch-plat">Connected Fresh</span>
+          <span class="arch-plat">FoodDocs</span>
+          <span class="arch-plat">Res Q Club</span>
+          <span class="arch-plat">SmartTill</span>
+        </div>
+      </div>
+
+      <div class="arch-cat reveal reveal-delay-1">
+        <div class="arch-cat-head"><div class="arch-cat-name">Guest &amp; Revenue</div><div class="arch-cat-count">6 platforms</div></div>
+        <div class="arch-cat-badge">Guest Data Spine</div>
+        <p class="arch-cat-desc">The relationship engine. From reservation to payment to loyalty to lifetime value &#8212; every guest interaction becomes an asset that compounds over time.</p>
+        <div class="arch-platforms">
+          <span class="arch-plat hub">SevenRooms</span>
+          <span class="arch-plat">Hang</span>
+          <span class="arch-plat">Bloom Intelligence</span>
+          <span class="arch-plat">TripleSeat</span>
+          <span class="arch-plat">Stripe</span>
+          <span class="arch-plat">Davo</span>
+        </div>
+      </div>
+
+      <div class="arch-cat reveal reveal-delay-2">
+        <div class="arch-cat-head"><div class="arch-cat-name">People &amp; HR</div><div class="arch-cat-count">7 platforms</div></div>
+        <div class="arch-cat-badge">Employee Lifecycle</div>
+        <p class="arch-cat-desc">The people engine. Hiring, onboarding, scheduling, training, payroll, recognition &#8212; designed as a product, not a process. One hire triggers eight platforms automatically.</p>
+        <div class="arch-platforms">
+          <span class="arch-plat hub">Rippling</span>
+          <span class="arch-plat">Greenhouse</span>
+          <span class="arch-plat">Deputy</span>
+          <span class="arch-plat">Trainual</span>
+          <span class="arch-plat">TipHaus</span>
+          <span class="arch-plat">Nectar</span>
+          <span class="arch-plat">YellowBox</span>
+        </div>
+      </div>
+
+      <div class="arch-cat reveal reveal-delay-3">
+        <div class="arch-cat-head"><div class="arch-cat-name">Comms &amp; AI</div><div class="arch-cat-count">4 platforms</div></div>
+        <div class="arch-cat-badge">Voice Intelligence</div>
+        <p class="arch-cat-desc">The communication layer. AI-powered phone handling, unified business communications, voice synthesis, and Google Business integration &#8212; never miss a reservation, never lose a lead.</p>
+        <div class="arch-platforms">
+          <span class="arch-plat">Slang AI</span>
+          <span class="arch-plat">RingCentral</span>
+          <span class="arch-plat">ElevenLabs</span>
+          <span class="arch-plat">Google Business</span>
+        </div>
+      </div>
+
+      <div class="arch-cat reveal reveal-delay-4">
+        <div class="arch-cat-head"><div class="arch-cat-name">Security &amp; Access</div><div class="arch-cat-count">4 platforms</div></div>
+        <div class="arch-cat-badge">Physical + Digital</div>
+        <p class="arch-cat-desc">The trust layer. Enterprise-grade SSO, smart locks, video surveillance, and emergency alerting &#8212; because investor-grade security means provable, auditable access control.</p>
+        <div class="arch-platforms">
+          <span class="arch-plat hub">Okta SSO</span>
+          <span class="arch-plat">Kisi</span>
+          <span class="arch-plat">Rhombus</span>
+          <span class="arch-plat">Omni Alert</span>
+        </div>
+      </div>
+
+      <div class="arch-cat reveal reveal-delay-5">
+        <div class="arch-cat-head"><div class="arch-cat-name">Marketing &amp; Brand</div><div class="arch-cat-count">5 platforms</div></div>
+        <div class="arch-cat-badge">Brand Presence</div>
+        <p class="arch-cat-desc">The brand engine. Social management, web presence, design tooling, and email &#8212; data-informed by guest intelligence, not guesswork.</p>
+        <div class="arch-platforms">
+          <span class="arch-plat">Sprout Social</span>
+          <span class="arch-plat">Squarespace</span>
+          <span class="arch-plat">Framer</span>
+          <span class="arch-plat">Canva</span>
+          <span class="arch-plat">Parcel</span>
+        </div>
+      </div>
+
+      <div class="arch-cat reveal reveal-delay-6">
+        <div class="arch-cat-head"><div class="arch-cat-name">Productivity &amp; Data</div><div class="arch-cat-count">10 platforms</div></div>
+        <div class="arch-cat-badge">Backbone</div>
+        <p class="arch-cat-desc">The backbone. Project management, AI-assisted operations, corporate finance, file storage, automation, and the central nervous system itself.</p>
+        <div class="arch-platforms">
+          <span class="arch-plat hub">Airtable</span>
+          <span class="arch-plat">ClickUp</span>
+          <span class="arch-plat hub">Claude + MCP</span>
+          <span class="arch-plat">Ramp</span>
+          <span class="arch-plat">Box</span>
+          <span class="arch-plat">Make.com</span>
+          <span class="arch-plat">CurrentSee</span>
+          <span class="arch-plat">Google Workspace</span>
+          <span class="arch-plat">Microsoft 365</span>
+          <span class="arch-plat">Notion</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-legend reveal">
+      <div class="arch-legend-item"><div class="arch-legend-dot hub"></div> Hub System (data aggregation point)</div>
+      <div class="arch-legend-item"><div class="arch-legend-dot platform"></div> Connected Platform</div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA FLOW -->
+<section class="section flow-section">
+  <div class="section-inner">
+    <div class="flow-header">
+      <div class="section-label reveal">Data Flow</div>
+      <h2 class="section-headline reveal reveal-delay-1">How It All <em>Connects</em></h2>
+    </div>
+    <div class="flow-visual reveal reveal-delay-2">
+      <div class="flow-label">Source Platforms</div>
+      <div class="flow-row" style="margin-top:12px">
+        <div class="flow-node">Toast POS</div>
+        <div class="flow-node">SevenRooms</div>
+        <div class="flow-node">Rippling</div>
+        <div class="flow-node">Deputy</div>
+        <div class="flow-node">R365</div>
+        <div class="flow-node">Every Angle</div>
+      </div>
+      <div class="flow-arrow down">&#8595; &#8595; &#8595;</div>
+      <div class="flow-label">Integration Layer</div>
+      <div class="flow-row" style="margin-top:12px">
+        <div class="flow-node hub">Native Sync</div>
+        <div class="flow-node hub">API Scripts</div>
+        <div class="flow-node hub">Make.com</div>
+      </div>
+      <div class="flow-arrow down">&#8595; &#8595; &#8595;</div>
+      <div class="flow-row">
+        <div class="flow-node center">AIRTABLE &#8212; Central Nervous System</div>
+      </div>
+      <div class="flow-arrow down">&#8595; &#8595; &#8595;</div>
+      <div class="flow-label">Outputs</div>
+      <div class="flow-row" style="margin-top:12px">
+        <div class="flow-node">Real-Time P&amp;L</div>
+        <div class="flow-node">Guest CLV</div>
+        <div class="flow-node">Churn Alerts</div>
+        <div class="flow-node">Daily Pulse</div>
+        <div class="flow-node">Labor Optimization</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="section cap-section" id="capabilities">
+  <div class="section-inner">
+    <div class="cap-header">
+      <div class="section-label reveal">Emergent Capabilities</div>
+      <h2 class="section-headline reveal reveal-delay-1">Eleven things this system does that<br><em>no restaurant on earth</em> can do today</h2>
+      <p class="reveal reveal-delay-2">These aren't features we're building. They're capabilities that emerge from the connections between platforms &#8212; impossible to achieve with any single tool, impossible to replicate without the full architecture.</p>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap-card reveal">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">01</span>
+            <span class="cap-card-tag">Customer Intelligence</span>
+            <span class="cap-card-title">True individual-level lifetime value</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>No restaurant on earth can tell you what a specific customer is worth. They can tell you what a table spent. They cannot tell you that the woman who came with a party of six &#8212; who didn't book, didn't pay &#8212; has influenced $47,000 in spend across 23 visits over two years. <strong>We can.</strong></p>
+          <div class="cap-stack">Every Angle + SevenRooms + Toast + Hang + Bloom + Airtable</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>Table 12 spent $400. No idea which guest drove it.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Individual attribution across every visit. CLV measured to the dollar.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-1">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">02</span>
+            <span class="cap-card-tag">Acquisition</span>
+            <span class="cap-card-title">Provable zero-marginal-cost customer migration</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>We can show the actual cost of acquiring a dinner guest through the coffee funnel versus direct dinner marketing. We track the exact moment a coffee customer becomes a dinner regular and calculate the true CAC for each concept.</p>
+          <div class="cap-stack">Hang cross-concept + SevenRooms + Bloom + Airtable funnel analysis</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>Fine dining CAC: $99 organic, $180 paid. Full cost every time.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Coffee CAC: ~$9. 15% convert &#8594; effective dinner CAC drops to $60.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-2">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">03</span>
+            <span class="cap-card-tag">Retention</span>
+            <span class="cap-card-title">Churn prediction before the staff notices</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>A regular stops coming. In a traditional restaurant, nobody notices for weeks. Our system sees the pattern break in real time. Visit frequency declining. Loyalty engagement dropping. The system flags the risk and triggers re-engagement automatically.</p>
+          <div class="cap-stack">SevenRooms cadence + Hang decay + Bloom frequency &#8594; Make.com trigger &#8594; outreach</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>Churn is invisible until it's permanent.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Algorithmic churn detection. 14-day gap triggers automated win-back.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-3">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">04</span>
+            <span class="cap-card-tag">Operations</span>
+            <span class="cap-card-title">Real-time P&amp;L &#8212; not monthly, not weekly, today</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>Most restaurants see their P&amp;L 30-45 days after the month closes. We know by 2pm Tuesday that this week is trending 12% below plan &#8212; and adjust Wednesday's prep, staffing, and purchasing before the problem compounds.</p>
+          <div class="cap-stack">Toast revenue + R365 food cost + Deputy labor + Airtable daily pulse &#8594; variance vs. plan</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>Monthly P&amp;L arrives 30-45 days late. All lagging indicators.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Daily revenue, labor %, food cost %, prime cost &#8212; compared to plan in real time.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">05</span>
+            <span class="cap-card-tag">Employee Experience</span>
+            <span class="cap-card-title">Employee lifecycle as a designed product</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>One action &#8212; "hired" in Greenhouse &#8212; cascades through Rippling Workflow Studio and provisions everything: payroll, benefits, SSO, training, schedule, door access, recognition. The GM's only job is to say welcome.</p>
+          <div class="cap-stack">Greenhouse &#8594; Rippling &#8594; Okta + Trainual + Deputy + Kisi + Nectar</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>80% annual turnover. 2-4 weeks before productive.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Zero manual steps for 8 platforms. Employee experience measured like UX.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-1">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">06</span>
+            <span class="cap-card-tag">Security</span>
+            <span class="cap-card-title">Institutional access control that actually works</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>An employee is terminated. Our system locks 8 platforms simultaneously from a single action in Rippling. Okta kills all SSO sessions. Kisi deactivates physical door access. A ClickUp checklist handles the manual platforms.</p>
+          <div class="cap-stack">Rippling termination &#8594; Okta session kill &#8594; Kisi access revoke &#8594; ClickUp offboarding</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>Former employees with active POS logins and working door codes.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Automated deprovisioning with audit trail. Investor-grade security posture.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-2">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">07</span>
+            <span class="cap-card-tag">Expansion</span>
+            <span class="cap-card-title">Concept #2 launches on day one with the full OS</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>When we open concept #2, the entire infrastructure deploys. Guest profiles migrate. Employee systems activate. Data feeds connect. Operational playbooks transfer. The new concept inherits every lesson from every day the first concept operated.</p>
+          <div class="cap-stack">Full stack replication: Toast + SevenRooms + Hang + Rippling + Airtable &#8212; all pre-wired</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>Every new concept starts from zero. 73% lower revenue per brand.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Full customer graph, full playbook, full data history from day one.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-3">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">08</span>
+            <span class="cap-card-tag">Incubation</span>
+            <span class="cap-card-title">Market validation before you sign a lease</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>The multi-daypart model is a live market research lab. Morning coffee generates data on daily-ritual behavior. Lunch generates QSR data. Every Angle passively builds the demographic profile of each daypart's customer base. Before we build a standalone concept, we have months of actual customer data.</p>
+          <div class="cap-stack">Toast daypart sales + Every Angle demographics + Hang conversion + Airtable dashboards</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>New concept = $1-3M bet. 60% of new restaurants fail year one.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Validated by real customer and demographic data before committing capital.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">09</span>
+            <span class="cap-card-tag">Compounding</span>
+            <span class="cap-card-title">The system gets smarter every day it runs</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>Time itself becomes the moat. Every day: guest preferences deepen, demographic profiles sharpen, seasonal models adjust, churn prediction improves, menu engineering refines. A restaurant that's been on this system for two years has a structural advantage &#8212; the data can't be bought, only earned.</p>
+          <div class="cap-stack">Every platform feeding Airtable daily &#8594; compounding intelligence</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>Nothing compounds. Every night, information walks out the door.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>The data layer compounds. Time is the moat.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-1">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">10</span>
+            <span class="cap-card-tag">Spatial Intelligence</span>
+            <span class="cap-card-title">The restaurant has eyes &#8212; and understands what it sees</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>Every Angle gives the building spatial awareness. Live demographic build without surveys &#8212; age range, party size, gender mix. Customer flow and space utilization heatmaps. Employee efficiency mapping. After 30 days, a demographic profile more accurate than any market research study.</p>
+          <div class="cap-stack">Every Angle (CV demographics + flow + motion + sentiment) &#8594; Airtable spatial layer</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>"The place feels young." All vibes. Zero measurement.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Continuous demographic capture. Spatial flow heatmaps. Employee motion analysis.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-2">
+        <div class="cap-card-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="cap-card-left">
+            <span class="cap-card-num">11</span>
+            <span class="cap-card-tag">Digital Journey</span>
+            <span class="cap-card-title">A complete digital footprint from threshold to exit</span>
+          </div>
+          <div class="cap-card-toggle">+</div>
+        </div>
+        <div class="cap-card-body"><div class="cap-card-content">
+          <p>Every single moment of a customer's journey has a digital record. Entry captured by Every Angle. Reservation matched by SevenRooms. Order by Toast. Loyalty by Hang. Exit dwell time by Every Angle. After a year, you don't just know what happened &#8212; you know how your restaurant works at a resolution no operator has ever had.</p>
+          <div class="cap-stack">Every Angle + SevenRooms + Toast + Hang + Deputy + Kisi &#8594; complete journey object per visit</div>
+          <div class="cap-compare">
+            <div class="cap-compare-box them"><div class="cap-compare-label">Industry</div>Digital record = a reservation name and a POS check total.</div>
+            <div class="cap-compare-box us"><div class="cap-compare-label">Son</div>Complete journey: entry, seating, pacing, orders, dwell, exit. Every visit, every guest.</div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section">
+  <div class="section-inner">
+    <div class="section-label reveal">Interested?</div>
+    <h2 class="section-headline reveal reveal-delay-1">This is what sets <em>Son</em> apart.</h2>
+    <p class="reveal reveal-delay-2">The technology platform is our structural advantage. If you're an investor who understands that the best restaurants of the next decade will be data-intelligent businesses, we should talk.</p>
+    <div class="reveal reveal-delay-3">
+      <a href="invest.html" class="btn btn-primary">Request Pitch Deck <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="index.html" class="btn btn-outline">Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Son</div>
+        <p>Fine Dining Korean<br>Austin, Texas</p>
+      </div>
+      <div class="footer-links">
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="technology.html">Technology</a>
+        <a href="invest.html">Invest</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <a href="https://instagram.com/sonaustin" target="_blank" rel="noopener">Instagram @sonaustin</a>
+        <a href="mailto:invest@sonaustin.com">Investor Inquiries</a>
+        <a href="mailto:hello@sonaustin.com">General Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright">&copy; 2026 Son Restaurant Group. All rights reserved.</div>
+      <div class="footer-timeline">AUSTIN, TEXAS &mdash; OPENING 2027</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  // Reveal
+  const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  // Progress
+  const pb=document.getElementById('progressBar');
+  function up(){const s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=(d>0?(s/d)*100:0)+'%'}
+  window.addEventListener('scroll',up,{passive:true});
+  // Mobile nav
+  const nt=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
+  nt.addEventListener('click',()=>{nt.classList.toggle('open');nl.classList.toggle('open')});
+  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nt.classList.remove('open');nl.classList.remove('open')}));
+  // Counters
+  function ac(el,t,d){d=d||1400;const s=performance.now();(function u(c){const p=Math.min((c-s)/d,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(u)})(s)}
+  const co=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const t=parseInt(x.target.getAttribute('data-count'));if(!isNaN(t))ac(x.target,t);co.unobserve(x.target)}})},{threshold:0.5});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+})();
+</script>
+</body>
+</html>

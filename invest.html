@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invest in Son — Fine Dining Korean | Austin, Texas</title>
+<meta name="description" content="Son is raising a pre-seed round to bring fine dining Korean cuisine to Austin, Texas. Zero competition. Fastest-growing cuisine. The most sophisticated technology platform in hospitality.">
+<meta property="og:title" content="Invest in Son — Fine Dining Korean">
+<meta property="og:description" content="Pre-seed investment opportunity. Austin has zero fine dining Korean restaurants. Korean cuisine is the fastest-growing category in American dining.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0A0B;
+  --bg-elevated:#111113;
+  --bg-surface:#1A1A1C;
+  --bg-surface2:#222225;
+  --text:#E8E6E1;
+  --text-secondary:#9A9790;
+  --text-muted:#5A5750;
+  --accent:#C4A265;
+  --accent-hover:#D4B275;
+  --accent-dim:rgba(196,162,101,0.1);
+  --accent-border:rgba(196,162,101,0.25);
+  --border:rgba(255,255,255,0.06);
+  --border-hover:rgba(255,255,255,0.12);
+  --emerald:#10B981;
+  --emerald-dim:rgba(16,185,129,0.1);
+  --emerald-border:rgba(16,185,129,0.25);
+  --content-max:1200px;
+  --content-pad:24px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 var(--content-pad);background:rgba(10,10,11,0.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all 0.3s}
+.nav-inner{max-width:var(--content-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;letter-spacing:2px;color:var(--text)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text-secondary);transition:color 0.2s;letter-spacing:0.5px}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-cta{font-size:13px!important;font-weight:600!important;color:var(--bg)!important;background:var(--accent);padding:10px 22px;border-radius:6px;transition:all 0.2s}
+.nav-cta:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;width:32px;height:32px;position:relative}
+.nav-toggle span{display:block;width:20px;height:1.5px;background:var(--text);position:absolute;left:6px;transition:all 0.3s}
+.nav-toggle span:nth-child(1){top:10px}
+.nav-toggle span:nth-child(2){top:15px}
+.nav-toggle span:nth-child(3){top:20px}
+@media(max-width:768px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--bg);flex-direction:column;padding:40px var(--content-pad);gap:24px}
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:18px}
+}
+
+/* PROGRESS */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:1001;transition:width 0.1s linear}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1),transform 0.8s cubic-bezier(0.22,1,0.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+.reveal-delay-5{transition-delay:0.5s}
+
+/* SECTION BASE */
+.section{padding:120px var(--content-pad)}
+.section-inner{max-width:var(--content-max);margin:0 auto}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;opacity:0.8}
+.section-headline{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.15;letter-spacing:-1px;margin-bottom:24px;color:var(--text)}
+.section-headline em{color:var(--accent);font-style:normal}
+
+/* HERO */
+.invest-hero{min-height:65vh;display:flex;align-items:center;padding:120px var(--content-pad) 80px;position:relative;overflow:hidden}
+.invest-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(196,162,101,0.03),transparent 70%)}
+.invest-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--bg),transparent);pointer-events:none}
+.invest-hero-inner{max-width:var(--content-max);margin:0 auto;position:relative;z-index:1;width:100%;text-align:center}
+.invest-hero-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:20px}
+.invest-hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,72px);font-weight:400;line-height:1.1;letter-spacing:-2px;margin-bottom:24px}
+.invest-hero-sub{font-size:18px;color:var(--text-secondary);line-height:1.7;max-width:640px;margin:0 auto 40px}
+.invest-hero-cta{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;padding:14px 28px;border-radius:6px;background:var(--accent);color:var(--bg);cursor:pointer;transition:all 0.25s;border:none;text-decoration:none}
+.invest-hero-cta:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,162,101,0.15)}
+
+/* MARKET SECTION */
+.market-section{background:var(--bg-elevated)}
+.market-header{text-align:center;margin-bottom:56px}
+.market-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-bottom:48px}
+.market-stat{background:var(--bg-surface);padding:40px 16px;text-align:center;transition:background 0.3s}
+.market-stat:hover{background:var(--bg-surface2)}
+.market-stat-value{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:400;color:var(--accent);line-height:1;margin-bottom:8px}
+.market-stat-label{font-size:11px;color:var(--text-muted);line-height:1.5;max-width:140px;margin:0 auto}
+.market-body{max-width:800px;margin:0 auto}
+.market-body p{font-size:16px;color:var(--text-secondary);line-height:1.8}
+.market-body p+p{margin-top:16px}
+.market-quote{margin-top:32px;padding:28px 36px;background:var(--bg-surface);border-left:2px solid var(--accent);border-radius:0 10px 10px 0;font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--text);line-height:1.6}
+.market-comps{margin-top:48px}
+.market-comps h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;text-align:center;margin-bottom:24px}
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.comp-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:28px;transition:border-color 0.3s}
+.comp-card:hover{border-color:var(--accent-border)}
+.comp-name{font-size:16px;font-weight:700;margin-bottom:4px}
+.comp-cuisine{font-size:12px;color:var(--accent);font-weight:500;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px}
+.comp-detail{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.comp-detail strong{color:var(--text);font-weight:600}
+@media(max-width:768px){.market-stats{grid-template-columns:repeat(2,1fr)}.market-stat:last-child{grid-column:span 2}.comp-grid{grid-template-columns:1fr}}
+
+/* WHY SON */
+.why-section{background:var(--bg)}
+.why-header{text-align:center;margin-bottom:56px}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.why-card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;padding:32px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1)}
+.why-card:hover{border-color:var(--accent-border);transform:translateY(-3px)}
+.why-card-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:600;margin-bottom:12px}
+.why-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;margin-bottom:10px}
+.why-card p{font-size:14px;color:var(--text-secondary);line-height:1.7}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr}}
+
+/* TEAM BRIEF */
+.team-section{background:var(--bg-elevated)}
+.team-header{text-align:center;margin-bottom:48px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.team-card{text-align:center}
+.team-photo{width:100%;aspect-ratio:3/4;border-radius:12px;margin-bottom:20px;overflow:hidden;background:var(--bg-surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.team-initials{font-family:'Playfair Display',serif;font-size:48px;color:rgba(196,162,101,0.1)}
+.team-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;margin-bottom:4px}
+.team-title{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:0.5px;margin-bottom:14px;text-transform:uppercase}
+.team-bio{font-size:14px;color:var(--text-secondary);line-height:1.7}
+@media(max-width:768px){.team-grid{grid-template-columns:1fr;gap:40px}}
+
+/* USE OF FUNDS */
+.funds-section{background:var(--bg)}
+.funds-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.funds-info h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;margin-top:28px;margin-bottom:14px}
+.funds-list{list-style:none;padding:0}
+.funds-list li{padding:12px 0;font-size:15px;color:var(--text-secondary);display:flex;align-items:flex-start;gap:14px;line-height:1.6;border-bottom:1px solid var(--border)}
+.funds-list li:last-child{border-bottom:none}
+.funds-list li::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:8px}
+.funds-timeline{margin-top:32px}
+.funds-timeline h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;margin-bottom:16px}
+.timeline-steps{display:flex;flex-direction:column;gap:0}
+.timeline-step{display:flex;gap:20px;position:relative}
+.timeline-dot{width:12px;height:12px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:4px;position:relative;z-index:1}
+.timeline-step:not(:last-child) .timeline-dot::after{content:'';position:absolute;left:5px;top:12px;width:1px;height:calc(100% + 16px);background:var(--border)}
+.timeline-content{padding-bottom:24px}
+.timeline-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.timeline-text{font-size:14px;color:var(--text-secondary);line-height:1.6}
+@media(max-width:768px){.funds-layout{grid-template-columns:1fr;gap:40px}}
+
+/* FORM SECTION */
+.form-section{background:var(--bg-elevated)}
+.form-layout{display:grid;grid-template-columns:1fr 480px;gap:80px;align-items:start}
+.form-info{padding-top:20px}
+.form-trust{margin-top:32px}
+.form-trust-item{display:flex;align-items:flex-start;gap:14px;padding:12px 0;font-size:14px;color:var(--text-secondary);line-height:1.6}
+.form-trust-icon{width:32px;height:32px;border-radius:8px;background:var(--accent-dim);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.form-container{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:36px}
+.form-container h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;margin-bottom:6px}
+.form-container>p{font-size:13px;color:var(--text-muted);margin-bottom:24px}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-size:12px;font-weight:500;color:var(--text-muted);margin-bottom:6px}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);transition:all 0.2s;outline:none}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--text-muted)}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23E8E6E1' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer}
+.form-select option{background:var(--bg-surface);color:var(--text)}
+.form-textarea{min-height:80px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-submit{width:100%;background:var(--accent);color:var(--bg);border:none;border-radius:6px;padding:14px 28px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;margin-top:6px}
+.form-submit:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.form-disclaimer{font-size:10px;color:var(--text-muted);margin-top:14px;line-height:1.6;opacity:0.7}
+.form-success{display:none;text-align:center;padding:60px 20px}
+.form-success h4{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:12px}
+.form-success p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+@media(max-width:768px){.form-layout{grid-template-columns:1fr;gap:40px}.form-container{padding:24px 18px}.form-row{grid-template-columns:1fr}}
+
+/* FOOTER */
+.footer{background:var(--bg);border-top:1px solid var(--border);padding:72px var(--content-pad) 36px}
+.footer-inner{max-width:var(--content-max);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.footer-brand .footer-logo{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;letter-spacing:2px;margin-bottom:10px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.6}
+.footer-links h4{font-size:14px;font-weight:600;margin-bottom:12px}
+.footer-links a{display:block;font-size:13px;color:var(--text-muted);padding:5px 0;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copyright{font-size:12px;color:var(--text-muted);opacity:0.6}
+.footer-timeline{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:2px;opacity:0.8}
+@media(max-width:768px){.footer-top{grid-template-columns:1fr;gap:28px}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;padding:14px 28px;border-radius:6px;border:none;cursor:pointer;transition:all 0.25s;letter-spacing:0.3px}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border-hover)}
+.btn-outline:hover{background:var(--bg-surface);border-color:var(--accent-border);transform:translateY(-2px)}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Son</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#vision">Vision</a></li>
+      <li><a href="index.html#concept">Concept</a></li>
+      <li><a href="index.html#team">Team</a></li>
+      <li><a href="index.html#opportunity">Opportunity</a></li>
+      <li><a href="technology.html">Technology</a></li>
+      <li><a href="invest.html" class="active">Invest</a></li>
+      <li><a href="index.html#waitlist" class="nav-cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="invest-hero">
+  <div class="invest-hero-inner">
+    <div class="invest-hero-label reveal">For Investors</div>
+    <h1 class="invest-hero-title reveal reveal-delay-1">Join Us at the Beginning</h1>
+    <p class="invest-hero-sub reveal reveal-delay-2">Son is raising a pre-seed round to bring fine dining Korean cuisine to Austin. We seek partners who understand that the best restaurants are built on vision, operational excellence, and the right team.</p>
+    <a href="#pitch-deck" class="invest-hero-cta reveal reveal-delay-3">Request Pitch Deck <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="section market-section" id="market">
+  <div class="section-inner">
+    <div class="market-header">
+      <div class="section-label reveal">The Opportunity</div>
+      <h2 class="section-headline reveal reveal-delay-1">A Wide-Open <em>Market</em></h2>
+    </div>
+    <div class="market-stats reveal reveal-delay-2">
+      <div class="market-stat">
+        <div class="market-stat-value" data-count="0">0</div>
+        <div class="market-stat-label">Fine dining Korean restaurants in Austin</div>
+      </div>
+      <div class="market-stat">
+        <div class="market-stat-value">#1</div>
+        <div class="market-stat-label">Fastest-growing cuisine category in U.S.</div>
+      </div>
+      <div class="market-stat">
+        <div class="market-stat-value" data-count="7">0</div>
+        <div class="market-stat-label">Michelin stars in Austin</div>
+      </div>
+      <div class="market-stat">
+        <div class="market-stat-value" data-count="51">0</div>
+        <div class="market-stat-label">Michelin-recognized restaurants in Texas</div>
+      </div>
+      <div class="market-stat">
+        <div class="market-stat-value">&lt;1yr</div>
+        <div class="market-stat-label">Craft Omakase: opening to Michelin star</div>
+      </div>
+    </div>
+    <div class="market-body reveal reveal-delay-3">
+      <p>Austin has seven Michelin stars, proven demand for $150&#8211;$215 tasting menus, and zero fine dining Korean restaurants. Korean cuisine is the fastest-growing category in American dining &#8212; yet Austin's entire Korean restaurant landscape is casual BBQ and fusion.</p>
+      <p>The opportunity isn't just that the market is empty. The opportunity is that Austin diners have already demonstrated willingness to pay premium prices for elevated Asian cuisine. Craft Omakase earned a Michelin Star in less than one year. The appetite is proven.</p>
+      <div class="market-quote reveal reveal-delay-4">We are not competing with Korean BBQ. We are not competing with pan-Asian fusion. Son occupies a category of one.</div>
+    </div>
+    <div class="market-comps reveal reveal-delay-5">
+      <h3>Comparable Market Success</h3>
+      <div class="comp-grid">
+        <div class="comp-card">
+          <div class="comp-name">Craft Omakase</div>
+          <div class="comp-cuisine">Japanese Omakase &#183; Austin</div>
+          <div class="comp-detail"><strong>Michelin Star in &lt;1 year.</strong> Proved Austin's appetite for elevated Asian fine dining at premium price points.</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-name">Uchi /Uchi Austin</div>
+          <div class="comp-cuisine">Japanese &#183; Austin</div>
+          <div class="comp-detail"><strong>Multi-location expansion from Austin.</strong> Demonstrated that elevated Asian cuisine in Austin can scale into a national restaurant group.</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-name">Leur</div>
+          <div class="comp-cuisine">Fine Dining &#183; Austin</div>
+          <div class="comp-detail"><strong>Michelin Star in first year.</strong> Austin's newest fine dining entry &#8212; 10-course tasting menu at $195. Market validation at our exact price point.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SON -->
+<section class="section why-section">
+  <div class="section-inner">
+    <div class="why-header">
+      <div class="section-label reveal">Why Son</div>
+      <h2 class="section-headline reveal reveal-delay-1">Four Structural <em>Advantages</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-card-num">01</div>
+        <h3>Category of One</h3>
+        <p>Zero fine dining Korean restaurants in Austin. Zero in Texas. We're not entering a competitive market &#8212; we're creating a category that doesn't exist yet.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-card-num">02</div>
+        <h3>45-Platform Operating System</h3>
+        <p>The most sophisticated technology platform ever built for a restaurant. Real-time P&amp;L, individual guest lifetime value, predictive churn detection, and 11 emergent capabilities no restaurant on earth possesses. <a href="technology.html" style="color:var(--emerald);text-decoration:underline;text-underline-offset:3px">Explore the architecture &rarr;</a></p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-card-num">03</div>
+        <h3>Compounding Data Moat</h3>
+        <p>Every day the system runs, the business gets harder to compete with. Guest intelligence deepens. Operational models sharpen. The data can't be bought &#8212; it can only be earned by operating. Time is the moat.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-card-num">04</div>
+        <h3>Expansion Architecture</h3>
+        <p>When Son opens concept #2, the entire infrastructure deploys. Guest profiles migrate. Data feeds connect. Every new concept inherits every lesson from every day the first concept operated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section team-section" id="team">
+  <div class="section-inner">
+    <div class="team-header">
+      <div class="section-label reveal">The Team</div>
+      <h2 class="section-headline reveal reveal-delay-1">Three Founders. <em>One Vision.</em></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-photo"><div class="team-initials">DT</div></div>
+        <h3 class="team-name">Dominic Thomas</h3>
+        <div class="team-title">Technology &amp; Strategy</div>
+        <p class="team-bio">Designs the 45-platform operating system that gives Son capabilities no restaurant in America possesses. Enterprise systems architecture meets AI-powered hospitality intelligence.</p>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-photo"><div class="team-initials">BA</div></div>
+        <h3 class="team-name">Brandon Acu&ntilde;a-Cardona</h3>
+        <div class="team-title">Operations &amp; Visual Identity</div>
+        <p class="team-bio">Shapes every visual and experiential touchpoint &#8212; from brand identity to service choreography. Contemporary Korean aesthetics meets natural materials and refined simplicity.</p>
+      </div>
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-photo"><div class="team-initials">JS</div></div>
+        <h3 class="team-name">June Shim</h3>
+        <div class="team-title">Head Chef &amp; Founder</div>
+        <p class="team-bio">A lifetime of Korean culinary mastery brought to Austin. Dishes that honor generations of technique while embracing the extraordinary produce and proteins of Texas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE OF FUNDS -->
+<section class="section funds-section">
+  <div class="section-inner">
+    <div class="funds-layout">
+      <div class="funds-info">
+        <div class="section-label reveal">Use of Funds</div>
+        <h2 class="section-headline reveal reveal-delay-1">Where Your Investment Goes</h2>
+        <p class="reveal reveal-delay-2" style="font-size:16px;color:var(--text-secondary);line-height:1.8">Son is raising a pre-seed round to secure real estate, build out the restaurant, and fund pre-opening operations. Every dollar is allocated to bring this concept from vision to opening night.</p>
+        <ul class="funds-list reveal reveal-delay-3">
+          <li>Real estate acquisition and lease negotiation in target Austin neighborhoods</li>
+          <li>Restaurant buildout, interior design, and kitchen equipment</li>
+          <li>Pre-opening operations, team hiring, and training program</li>
+          <li>Technology platform deployment and integration</li>
+          <li>Working capital for the first six months of operations</li>
+          <li>Brand launch, marketing, and PR for opening</li>
+        </ul>
+      </div>
+      <div class="funds-timeline reveal reveal-delay-4">
+        <h3>Target Timeline</h3>
+        <div class="timeline-steps">
+          <div class="timeline-step">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-label">Q1 &#8211; Q2 2026</div>
+              <div class="timeline-text">Pre-seed fundraise. Finalize investor group. Begin real estate search in target Austin neighborhoods.</div>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-label">Q3 &#8211; Q4 2026</div>
+              <div class="timeline-text">Secure location. Begin architectural design and permitting. Deploy core technology platforms.</div>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-label">Q1 &#8211; Q2 2027</div>
+              <div class="timeline-text">Restaurant buildout. Hire and train team. Menu development with Texas purveyors. Soft launch events.</div>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-label">Q3 2027</div>
+              <div class="timeline-text">Grand opening. Full tasting menu launch. Technology platform fully operational.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PITCH DECK FORM -->
+<section class="section form-section" id="pitch-deck">
+  <div class="section-inner">
+    <div class="form-layout">
+      <div class="form-info">
+        <div class="section-label reveal">Request Access</div>
+        <h2 class="section-headline reveal reveal-delay-1">Get the Full <em>Pitch Deck</em></h2>
+        <p class="reveal reveal-delay-2" style="font-size:16px;color:var(--text-secondary);line-height:1.8;max-width:480px">Our investor materials include the complete financial model, market analysis, competitive landscape, technology architecture, and team backgrounds. We'll respond within 24 hours.</p>
+        <div class="form-trust reveal reveal-delay-3">
+          <div class="form-trust-item">
+            <div class="form-trust-icon">&#128274;</div>
+            <div>Your information is kept strictly confidential and used only for investor communication.</div>
+          </div>
+          <div class="form-trust-item">
+            <div class="form-trust-icon">&#128231;</div>
+            <div>Expect a response from our founding team within 24 hours with the full pitch deck.</div>
+          </div>
+          <div class="form-trust-item">
+            <div class="form-trust-icon">&#128200;</div>
+            <div>Materials include pro forma financial model, market analysis, competitive landscape, and technology architecture.</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-container reveal reveal-delay-2" id="investForm">
+        <div id="investFormContent">
+          <h3>Request Our Pitch Deck</h3>
+          <p>Tell us about yourself and we'll send everything you need.</p>
+          <form id="investorForm" onsubmit="handleInvestorSubmit(event)">
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Full Name *</label><input type="text" class="form-input" placeholder="Your name" required></div>
+              <div class="form-group"><label class="form-label">Email Address *</label><input type="email" class="form-input" placeholder="you@company.com" required></div>
+            </div>
+            <div class="form-group"><label class="form-label">Company / Affiliation</label><input type="text" class="form-input" placeholder="Your firm or organization"></div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Investor Type</label><select class="form-select"><option value="">Select one</option><option value="angel">Angel Investor</option><option value="vc">Venture Capital</option><option value="family">Family Office</option><option value="strategic">Strategic / Industry</option><option value="other">Other</option></select></div>
+              <div class="form-group"><label class="form-label">Accredited Investor?</label><select class="form-select"><option value="">Select one</option><option value="yes">Yes</option><option value="no">No</option><option value="prefer-not">Prefer not to say</option></select></div>
+            </div>
+            <div class="form-group"><label class="form-label">What interests you most about Son?</label><textarea class="form-textarea" placeholder="Tell us about your interest &#8212; the concept, the technology, the market, the team..."></textarea></div>
+            <button type="submit" class="form-submit">Request Pitch Deck</button>
+          </form>
+          <p class="form-disclaimer">By submitting this form, you are requesting access to our investor materials. This is not an offer to sell securities. Son Restaurant Group reserves the right to decline requests at its discretion.</p>
+        </div>
+        <div class="form-success" id="investFormSuccess">
+          <h4>Thank You</h4>
+          <p>Our founding team will send the complete pitch deck to your email within 24 hours.<br><br>In the meantime, explore our <a href="technology.html" style="color:var(--emerald);text-decoration:underline">technology platform</a> to see what makes Son different.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Son</div>
+        <p>Fine Dining Korean<br>Austin, Texas</p>
+      </div>
+      <div class="footer-links">
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="technology.html">Technology</a>
+        <a href="invest.html">Invest</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <a href="https://instagram.com/sonaustin" target="_blank" rel="noopener">Instagram @sonaustin</a>
+        <a href="mailto:invest@sonaustin.com">Investor Inquiries</a>
+        <a href="mailto:hello@sonaustin.com">General Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright">&copy; 2026 Son Restaurant Group. All rights reserved.</div>
+      <div class="footer-timeline">AUSTIN, TEXAS &mdash; OPENING 2027</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  // Reveal
+  const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  // Progress
+  const pb=document.getElementById('progressBar');
+  function up(){const s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=(d>0?(s/d)*100:0)+'%'}
+  window.addEventListener('scroll',up,{passive:true});
+  // Mobile nav
+  const nt=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
+  nt.addEventListener('click',()=>{nt.classList.toggle('open');nl.classList.toggle('open')});
+  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nt.classList.remove('open');nl.classList.remove('open')}));
+  // Counters
+  function ac(el,t,d){d=d||1400;const s=performance.now();(function u(c){const p=Math.min((c-s)/d,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(u)})(s)}
+  const co=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const t=parseInt(x.target.getAttribute('data-count'));if(!isNaN(t))ac(x.target,t);co.unobserve(x.target)}})},{threshold:0.5});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t){window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-72,behavior:'smooth'})}})});
+  // Form
+  window.handleInvestorSubmit=function(e){e.preventDefault();document.getElementById('investFormContent').style.display='none';document.getElementById('investFormSuccess').style.display='block'};
+})();
+</script>
+</body>
+</html>
